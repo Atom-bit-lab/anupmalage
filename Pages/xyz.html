@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Loader Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Fullscreen Black Loader Screen */
+    #loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    /* Centered Text Container */
+    .loader-text {
+      font-size: 8rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      /* Scales from 0 to 60% (0.6) */
+      animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      user-select: none;
+    }
+
+    /* Styling for the SVG img when loaded inside [ ] */
+    .loader-text img {
+      height: 0.85em; /* Auto-scales height relative to font size */
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
+      
+      /* UNCOMMENT THE LINE BELOW IF YOUR SVG FILE IS BLACK AND NEEDS TO BE WHITE */
+      /* filter: brightness(0) invert(1); */
+    }
+
+    @keyframes scaleUp {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(0.6);
+        opacity: 1;
+      }
+    }
+
+    /* Fade-out effect class */
+    .fade-out {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+
+    /* Main Website Content (Revealed after loading) */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Loader Overlay -->
+  <div id="loader-overlay">
+    <div class="loader-text">[<span id="letter">A</span>]</div>
+  </div>
+
+  <!-- Your Main Website Content -->
+  <main class="main-content">
+    <h1>Welcome to the Website</h1>
+    <p>Your content has loaded.</p>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const letterElement = document.getElementById('letter');
+      const loaderOverlay = document.getElementById('loader-overlay');
+
+      // 8 Indian language scripts + Final Kannada SVG Image
+      const animationSequence = [
+        'अ', // 1. Devanagari (Hindi)
+        'অ', // 2. Bengali
+        'அ', // 3. Tamil
+        'అ', // 4. Telugu
+        'അ', // 5. Malayalam
+        'અ', // 6. Gujarati
+        'ଅ', // 7. Odia
+        'ਅ', // 8. Gurmukhi (Punjabi)
+        '<img src="your-kannada-a.svg" alt="Kannada A">' // 9. Final Kannada SVG Image
+      ];
+
+      const scaleAnimationDuration = 800; // Duration of initial scale animation (ms)
+      const initialDelay = 300;           // 300ms pause before starting letter swaps
+      const swapSpeed = 180;              // Speed per character swap (ms)
+
+      // Wait for scale animation to finish + 300ms delay
+      setTimeout(() => {
+        let index = 0;
+
+        const cycleInterval = setInterval(() => {
+          // InnerHTML allows rendering both text and HTML <img> tags
+          letterElement.innerHTML = animationSequence[index];
+          index++;
+
+          // When sequence completes
+          if (index >= animationSequence.length) {
+            clearInterval(cycleInterval);
+
+            // Hold briefly on the final Kannada SVG, then fade out loader
+            setTimeout(() => {
+              loaderOverlay.classList.add('fade-out');
+            }, 600);
+          }
+        }, swapSpeed);
+
+      }, scaleAnimationDuration + initialDelay);
+    });
+  </script>
+</body>
+</html>
