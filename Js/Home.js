@@ -1,4 +1,51 @@
+const navigationEntry = performance.getEntriesByType("navigation")[0];
+const isReload = navigationEntry?.type === "reload";
+
+if (sessionStorage.getItem("hasVisitedHome") && !isReload) {
+  document.documentElement.classList.add("returning-home");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  document.body.classList.remove("page-transition");
+  document.body.classList.add("page-ready");
+
+  window.navigateToPage = (href) => {
+    const loaderOverlay = document.getElementById("loader-overlay");
+
+    if (loaderOverlay) {
+      loaderOverlay.style.display = "none";
+    }
+
+    document.body.classList.add("page-transition");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 350);
+  };
+
+    document.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", (e) => {
+
+            const href = link.getAttribute("href");
+
+            if (
+                !href ||
+                href.startsWith("#") ||
+                link.target === "_blank" ||
+                link.hostname !== window.location.hostname
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+
+            navigateToPage(href);
+
+        });
+
+    });
 
   /* ========================================
      1. WEBSITE LOADER ANIMATION
@@ -22,20 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const initialDelay = 300;
   const swapSpeed = 180;
 
-  const navigationEntry = performance.getEntriesByType("navigation")[0];
-  const isReload = navigationEntry?.type === "reload";
-  const hasVisited = sessionStorage.getItem("hasVisited");
+const hasVisitedHome = sessionStorage.getItem("hasVisitedHome");
 
-    // Reset the game whenever the website is reloaded
 if (isReload) {
-  sessionStorage.removeItem("tetrisGameState");
+    sessionStorage.removeItem("tetrisGameState");
 }
 
-  // Play on first visit or page reload.
-  // Skip when navigating between pages.
-  const shouldPlayLoader = !hasVisited || isReload;
+const shouldPlayLoader = !hasVisitedHome || isReload;
 
-  sessionStorage.setItem("hasVisited", "true");
+sessionStorage.setItem("hasVisitedHome", "true");
 
   let loaderDuration = 0;
 
@@ -154,6 +196,35 @@ if (isReload) {
       .map(() => Array(cols).fill(0));
 
     clearedLinesCount = 0;
+
+  }
+
+
+  // Creates a random intro setup where the first I piece
+  // falls from the top and completes the bottom row.
+  function setupIntroBoard() {
+
+    const targetRow = rows - 1;
+
+    // Choose a random 4-cell gap for the I piece.
+    const gapStart = Math.floor(
+      Math.random() * Math.max(1, cols - 3)
+    );
+
+    // Fill the bottom row except for the 4-cell gap.
+    for (let c = 0; c < cols; c++) {
+      grid[targetRow][c] =
+        c >= gapStart && c < gapStart + 4 ? 0 : 1;
+    }
+
+    // Use the horizontal I piece.
+    currentPiece = SHAPES[0];
+
+    
+    pieceX = gapStart - 3;
+
+    // Start the piece at the very top of the board.
+    pieceY = 0;
 
   }
 
@@ -729,31 +800,31 @@ if (isReload) {
      10. START GAME
   ======================================== */
 
-  const startGame = () => {
+const startGame = () => {
 
-    resizeCanvas();
+  // Disable Tetris on mobile and tablet
+  if (window.matchMedia("(max-width: 1024px)").matches) {
+    return;
+  }
 
-    const restored = restoreGameState();
+  resizeCanvas();
+  const restored = restoreGameState();
 
-    if (!restored) {
-      spawnPiece();
-    }
+  if (!restored) {
+    setupIntroBoard();
+  }
 
-    isGameStarted = true;
-
-    window.addEventListener("resize", resizeCanvas);
-
-    startGameLoop();
-
-    animationFrameId = requestAnimationFrame(draw);
-
-  };
+  isGameStarted = true;
+  window.addEventListener("resize", resizeCanvas);
+  startGameLoop();
+  animationFrameId = requestAnimationFrame(draw);
+};
 
 
   // Start Tetris after loader or immediately if skipped.
   if (shouldPlayLoader) {
 
-    setTimeout(startGame, 4500);
+    setTimeout(startGame);
 
   } else {
 

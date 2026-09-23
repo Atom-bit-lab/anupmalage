@@ -7,6 +7,7 @@
     <title>Anup Malage | Product Designer</title>
     <link rel="icon" type="image/x-icon" href="../Assets/Logo.svg">
     <link rel="stylesheet" href="../css/Home.css">
+    <link rel="preload" href="../Assets/Mark.svg" as="image">
     <script src="../js/Home.js"></script>
 </head>
 
@@ -42,7 +43,7 @@
             <canvas id="grid-canvas"></canvas>
             <div class="hero-content">
                 <p class="hero-title">Crafting products that are <br>more that just interfaces.</p>
-                <p class="follow-up">If drawing Boxes was all i did i'd be the Picasso of rectangles,<br>But As a UX
+                <p class="follow-up">If drawing Boxes was all i did i'd be the Picasso of rectangles,<br>But as a UX
                     designer i make those boxes work for you.</p>
             </div>
         </section>
@@ -50,7 +51,7 @@
     </div>
 
     <div class="card-container">
-        <div class="card" onclick="window.location.href='..Pages/Farm360.html'">
+        <div class="card" onclick="navigateToPage('Farm360.html')">
             <div class="Thumbnail">
                 <img src="../Assets/Farm360.png" alt="Thumbnail">
             </div>
@@ -81,7 +82,7 @@
         </div>
     </div>
     <div class="card-container">
-        <div class="card">
+        <div class="card" onclick="navigateToPage('SMB.html')">
             <div class="Thumbnail">
                 <img src="../Assets/Myntra.png" alt="Thumbnail">
             </div>

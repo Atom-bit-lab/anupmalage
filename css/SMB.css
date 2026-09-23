@@ -1,0 +1,765 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    transition: opacity 350ms ease;
+}
+
+body.page-transition {
+    opacity: 0;
+
+}
+
+
+/* ========================================
+   AUDIT
+======================================== */
+
+.audit-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 848px;
+    background-color: #fafafa;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+.audit-column {
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.audit-column:first-child {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.audit-list {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.audit-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.audit-list li::marker {
+    color: #555555;
+    font-size: 12px;
+}
+
+.audit-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #111111;
+    line-height: 1.3;
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    padding: 8px 16px 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    background-color: transparent;
+    color: #000000;
+    transition: background-color 0.4s ease-in-out,
+                color 0.4s ease-in-out;
+}
+
+.back-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.back-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+
+/* ========================================
+   BANNER
+======================================== */
+
+.banner {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ========================================
+   BODY TEXT
+======================================== */
+
+.body-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    margin: 0;
+    color: #4d4d4d;
+}
+
+
+/* ========================================
+   CAROUSEL
+======================================== */
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #fff;
+    border-radius: 0;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-btn:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 3px;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.carousel-image-box {
+    width: 100%;
+    aspect-ratio: 848 / 540;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.carousel-image-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+/* ========================================
+   CASE MAIN CONTENT
+======================================== */
+
+.case-main-content {
+    background-color: #fff;
+    padding: 40px 44px;
+    width: 100%;
+    align-items: center;
+}
+
+
+/* ========================================
+   CASE SIDEBAR
+======================================== */
+
+.case-sidebar {
+    display: none;
+    padding-top: 40px;
+    width: 20%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 1px solid #e5e5e5;
+}
+
+
+/* ========================================
+   CONTENT BODY
+======================================== */
+
+.content-body {
+    position: static;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    min-height: 100vh;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+
+/* ========================================
+   DESIGN
+======================================== */
+
+.design {
+    width: 848px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    height: 400px;
+    background-color: bisque;
+}
+
+
+/* ========================================
+   GRID
+======================================== */
+
+.grid-item {
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ========================================
+   IMAGE LARGE
+======================================== */
+
+.image-large {
+    width: 100%;
+    max-width: 848px;
+    height: 540px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.image-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.image-carousel {
+    width: 100%;
+    max-width: 848px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 848px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 32px;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 848px;
+}
+
+
+/* ========================================
+   MOCKUP
+======================================== */
+
+.mockup img {
+    height: 468px;
+    width: 408px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.nbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+
+/* ========================================
+   PROCESS
+======================================== */
+
+.process-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.process-desc {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666666;
+    line-height: 1.4;
+}
+
+.process-item {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.process-item:last-child {
+    border-bottom: none;
+}
+
+.process-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 848px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+}
+
+.process-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #9e9e9e;
+    line-height: 1;
+    min-width: 40px;
+    text-align: center;
+    user-select: none;
+}
+
+.process-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   PROBLEM
+======================================== */
+
+.problem {
+    width: 100%;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 112px;
+}
+
+
+/* ========================================
+   SECTION
+======================================== */
+
+.section {
+    width: 100%;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 112px;
+    scroll-margin-top: 90px;
+}
+
+.section-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 44px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #757575;
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        border-color 0.3s ease-in-out;
+}
+
+.section-btn:hover {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+.section-btn.active {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-color: #000000 !important;
+    border-left: 2px solid #000;
+    font-weight: 400;
+}
+
+.section-header {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 848px;
+}
+
+.section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    color: #757575;
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    font-weight: 500;
+    color: #111111;
+    line-height: 36px;
+}
+
+
+/* ========================================
+   STAGES
+======================================== */
+
+.stage-header {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    max-width: 848px;
+}
+
+.stage-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+}
+
+.stages {
+    margin-top: 44px;
+    gap: 64px;
+    width: 848px;
+}
+
+
+/* ========================================
+   STAGE CONTENT
+======================================== */
+
+.Stage-Content {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ========================================
+   VIDEO — LOOP
+======================================== */
+
+.Video_demo_loop {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.Video_demo_loop video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ========================================
+   VIDEO — PLAY BUTTON
+======================================== */
+
+.Video_demo_play {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.Video_demo_play video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+
+/* ========================================
+   CUSTOM PLAY BUTTON
+======================================== */
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+   
+
+    background:#fff;
+    color: #000;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.video-play:hover {
+    background: #000;
+    color: #fff;
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.Video_demo_play.playing .video-overlay {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 768px) {
+
+    .Video_demo_loop,
+    .Video_demo_play {
+        margin-bottom: 24px;
+    }
+
+    .video-play {
+        width: 56px;
+        height: 56px;
+        font-size: 18px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .Video_demo_loop,
+    .Video_demo_play {
+        margin-bottom: 20px;
+    }
+
+    .video-play {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+    }
+
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLET
+   744px and above
+======================================== */
+
+@media (min-width: 744px) {
+
+    .content-body {
+        padding: 0 32px;
+    }
+
+    .nbar {
+        padding: 16px 32px;
+    }
+
+    .banner img {
+        height: 480px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — DESKTOP
+   1200px and above
+======================================== */
+
+@media (min-width: 1200px) {
+
+    .banner img {
+        height: 580px;
+    }
+
+    .case-sidebar {
+        display: flex;
+        position: sticky;
+        top: 65px;
+        align-self: flex-start;
+    }
+
+    .content-body {
+        padding: 0 44px;
+    }
+
+    .nbar {
+        padding: 16px 44px;
+    }
+}

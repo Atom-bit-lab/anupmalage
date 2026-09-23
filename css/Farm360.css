@@ -6,7 +6,15 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
+    transition: opacity 350ms ease;
 }
+
+body.page-transition {
+    opacity: 0;
+
+}
+
+
 
 .body-text {
     font-family: 'Inter', sans-serif;
@@ -404,12 +412,6 @@ body {
     font-size: 12px;
 }
 
-.design {
-    width: 848px;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
 
 .image-grid {
     display: grid;
@@ -561,25 +563,4 @@ body {
 .footer {
     height: 400px;
     background-color: bisque;
-}
-
-@view-transition {
-  navigation: auto; /* Enables automatic view transitions across pages */
-}
-
-/* Custom fade animation override */
-::view-transition-old(root) {
-  animation: 200ms ease-out both fade-out;
-}
-
-::view-transition-new(root) {
-  animation: 300ms ease-in both fade-in;
-}
-
-@keyframes fade-out {
-  to { opacity: 0; }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
 }

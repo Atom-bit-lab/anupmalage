@@ -1,5 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  document.body.classList.remove("page-transition");
+
+  window.navigateToPage = (href) => {
+    document.body.classList.add("page-transition");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 350);
+  };
+
+    document.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", (e) => {
+
+            const href = link.getAttribute("href");
+
+            if (
+                !href ||
+                href.startsWith("#") ||
+                link.target === "_blank" ||
+                link.hostname !== window.location.hostname
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+
+            document.body.classList.add("page-transition");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 350);
+
+        });
+
+    });
+
   /* ========================================
      1. NAVIGATION LINK CLICK HANDLER
   ======================================== */
