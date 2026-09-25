@@ -75,61 +75,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* ========================================
-     2. VIDEO DEMO
-  ======================================== */
+/* ========================================
+   2. VIDEO DEMO
+======================================== */
 
-  // Loop videos (0–10 seconds)
-  document.querySelectorAll(".demoVideo_loop").forEach(video => {
+// Loop videos (0–10 seconds)
+document.querySelectorAll(".demoVideo_loop").forEach(video => {
 
-    video.addEventListener("timeupdate", () => {
+  video.addEventListener("timeupdate", () => {
 
-      if (video.currentTime >= 10) {
-        video.currentTime = 0;
-        video.play();
-      }
-
-    });
-
-  });
-
-
-  // Play-button videos
-  document.querySelectorAll(".Video_demo_play").forEach(container => {
-
-    const video = container.querySelector(".demoVideo_play");
-    const playButton = container.querySelector(".video-play");
-
-    playButton.addEventListener("click", () => {
-
+    if (video.currentTime >= 10) {
+      video.currentTime = 0;
       video.play();
-
-      container.classList.add("playing");
-
-      playButton.style.opacity = "0";
-      playButton.style.pointerEvents = "none";
-
-    });
-
-
-    video.addEventListener("timeupdate", () => {
-
-      if (video.currentTime >= 10) {
-
-        video.pause();
-        video.currentTime = 0;
-
-        container.classList.remove("playing");
-
-        playButton.style.opacity = "1";
-        playButton.style.pointerEvents = "auto";
-
-      }
-
-    });
+    }
 
   });
 
+});
+
+
+// Full-length play-button videos
+document.querySelectorAll(".Video_demo_play").forEach(container => {
+
+  const video = container.querySelector(".demoVideo_play");
+  const playButton = container.querySelector(".video-play");
+
+  playButton.addEventListener("click", () => {
+
+    video.play();
+
+    container.classList.add("playing");
+
+    playButton.style.opacity = "0";
+    playButton.style.pointerEvents = "none";
+
+  });
+
+  // Video plays until its natural end
+  video.addEventListener("ended", () => {
+
+    container.classList.remove("playing");
+
+    playButton.style.opacity = "1";
+    playButton.style.pointerEvents = "auto";
+
+  });
+
+});
 
   /* ========================================
      3. SCROLLSPY INTERSECTION OBSERVER
