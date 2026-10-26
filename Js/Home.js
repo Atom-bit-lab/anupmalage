@@ -7,6 +7,86 @@ if (sessionStorage.getItem("hasVisitedHome") && !isReload) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ========================================
+     RESPONSIVE NAVIGATION MENU
+  ======================================== */
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const navPanel = document.getElementById("nav-panel");
+  const navBackdrop = document.getElementById("nav-backdrop");
+  const navClose = document.getElementById("nav-close");
+  const navBar = document.querySelector(".nbar");
+  const resumeUrl = "https://drive.google.com/file/d/19Ro3HEk_fK-tTziPBwZeQaUzM6JyjR14/view?usp=sharing";
+
+  function positionNavPanel() {
+    if (!navPanel || !navBar) return;
+
+    navPanel.style.setProperty("--nav-bar-height", `${navBar.offsetHeight}px`);
+  }
+
+  positionNavPanel();
+  window.addEventListener("resize", positionNavPanel);
+
+  document.querySelectorAll("[data-resume-link]").forEach(link => {
+    if (resumeUrl) {
+      link.href = resumeUrl;
+    } else {
+      link.addEventListener("click", event => event.preventDefault());
+    }
+  });
+
+  function openNav() {
+    if (!navPanel || !navBackdrop || !menuToggle) return;
+
+    navPanel.classList.add("is-open");
+    navBackdrop.classList.add("is-open");
+    document.body.classList.add("nav-open");
+
+    menuToggle.setAttribute("aria-expanded", "true");
+    menuToggle.setAttribute("aria-label", "Close navigation menu");
+    navPanel.setAttribute("aria-hidden", "false");
+  }
+
+  function closeNav() {
+    if (!navPanel || !navBackdrop || !menuToggle) return;
+
+    navPanel.classList.remove("is-open");
+    navBackdrop.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+    navPanel.setAttribute("aria-hidden", "true");
+  }
+
+  if (menuToggle && navPanel && navBackdrop) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navPanel.classList.contains("is-open");
+
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    navBackdrop.addEventListener("click", closeNav);
+
+    if (navClose) {
+      navClose.addEventListener("click", closeNav);
+    }
+
+    navPanel.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeNav);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeNav();
+      }
+    });
+  }
+
   document.body.classList.remove("page-transition");
   document.body.classList.add("page-ready");
 
@@ -21,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       window.location.href = href;
-    }, 350);
+    }, 700);
   };
 
     document.querySelectorAll("a").forEach(link => {
@@ -824,7 +904,7 @@ const startGame = () => {
   // Start Tetris after loader or immediately if skipped.
   if (shouldPlayLoader) {
 
-    setTimeout(startGame);
+    setTimeout(startGame, 2000);
 
   } else {
 

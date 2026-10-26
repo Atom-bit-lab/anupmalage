@@ -15,7 +15,7 @@ body {
 
 body {
   opacity: 1;
-  transition: opacity 350ms ease;
+  transition: opacity 700ms ease-in-out;
   font-family: sans-serif;
 }
 
@@ -26,6 +26,9 @@ body.page-ready {
 body.page-transition {
   opacity: 0;
 }
+
+
+
 
 /* ========================================
    1. PAGE LOADER
@@ -164,9 +167,9 @@ html.returning-home #loader-overlay {
 }
 
 .pages {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .btn {
@@ -176,7 +179,7 @@ html.returning-home #loader-overlay {
   color: #232323;
   font-family: inter, sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   background-color: #fff;
 }
@@ -196,7 +199,7 @@ html.returning-home #loader-overlay {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -207,7 +210,7 @@ html.returning-home #loader-overlay {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -221,11 +224,14 @@ html.returning-home #loader-overlay {
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  color: #000;
-  text-align: center;
-  pointer-events: none;
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .hero-title {
@@ -452,5 +458,516 @@ h1 {
   .card {
     margin-right: 44px;
     margin-left: 44px;
+  }
+}
+
+
+/* ========================================
+   7. FOOTER
+======================================== */
+
+.site-footer {
+    --footer-margin: 44px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 80svh;
+    padding: 64px var(--footer-margin) 54px;
+    color: #484848;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.site-footer .footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* Brand */
+
+.site-footer .footer-brand {
+    max-width: 580px;
+    min-width: 0;
+}
+
+.site-footer .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    
+    color: #000;
+    text-decoration: none;
+}
+
+.site-footer .footer-logo-image {
+    width: 53px;
+    height: 49px;
+    object-fit: contain;
+}
+
+.site-footer .footer-logo-name {
+    color: #000;
+    font-size: 18px;
+    font-family: saira condensed, sans-serif;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.8px;
+}
+
+.site-footer .footer-philosophy {
+    max-width: 580px;
+    margin: 20px 0 0;
+    font-family: inter, sans-serif;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.4;
+    letter-spacing: -0.65px;
+}
+
+/* Contact */
+
+.site-footer .footer-contact {
+    width: 100%;
+    max-width: 480px;
+    justify-self: end;
+    margin-top: 105px;
+}
+
+.site-footer .footer-contact-heading {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: -0.6px;
+}
+
+.site-footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 34px;
+    padding-left: 16px;
+}
+
+/* Matches the existing .btn navigation style */
+
+.site-footer .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: #232323;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    background: #fff;
+    transition: background-color 0.4s ease-in-out,
+                color 0.4s ease-in-out;
+}
+
+.site-footer .footer-link:hover {
+    color: #fff;
+    background: #0e0e0e;
+}
+
+.site-footer .footer-arrow {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Bottom row */
+
+.site-footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 100px;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #757575;
+
+}
+
+.site-footer .footer-copyright {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-footer .copyright-symbol {
+    
+    font-size: 28px;
+    line-height: 1;
+}
+
+.site-footer .footer-tagline {
+    margin: 0;
+    text-align: right;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (min-width: 501px) and (max-width: 900px) {
+
+    .hero-title {
+        font-size: 44px;
+    }
+
+    .site-footer {
+        --footer-margin: 32px;
+        padding-top: 64px;
+        padding-bottom: 32px;
+    }
+
+    .site-footer .footer-main {
+        display: flex;
+        flex-direction: column;
+        gap: 72px;
+    }
+
+    .site-footer .footer-contact {
+        max-width: 650px;
+        margin-top: 0;
+    }
+
+    .site-footer .footer-links {
+        gap: 16px;
+        margin-top: 36px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .site-footer {
+        --footer-margin: 16px;
+        padding-top: 56px;
+        padding-bottom: 28px;
+    }
+
+    .site-footer .footer-main {
+        display: flex;
+        flex-direction: column;
+        gap: 88px;
+    }
+
+    .site-footer .footer-logo {
+        gap: 8px;
+    }
+
+    .site-footer .footer-logo-image {
+        width: 45px;
+        height: 43px;
+    }
+
+    .site-footer .footer-philosophy {
+        margin-top: 32px;
+    }
+
+    .site-footer .footer-contact {
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .site-footer .footer-links {
+        gap: 8px;
+        margin-top: 30px;
+        padding-left: 0;
+    }
+
+    .site-footer .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    .site-footer .footer-tagline {
+        text-align: left;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .site-footer .footer-link {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   8. RESPONSIVE NAVIGATION OVERLAY
+======================================== */
+
+/* Show inline links on desktop and use the menu control on smaller screens. */
+.pages {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 8px 16px;
+  color: #000;
+  font-family: inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: #111;
+  cursor: pointer;
+  justify-self: end;
+  z-index: 1004;
+}
+
+.menu-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.menu-icon--close,
+.menu-toggle[aria-expanded="true"] .menu-icon--menu {
+  display: none;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon--close {
+  display: block;
+}
+
+/* Dark, blurred page behind the menu */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: rgba(25, 28, 32, 0.88);
+  opacity: 0;
+  visibility: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 600ms ease, visibility 0s linear 600ms;
+}
+
+.nav-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Panel slides down from the top, beneath the header */
+.nav-panel {
+  position: fixed;
+  top: var(--nav-bar-height, 0px);
+  left: 0;
+  z-index: 1003;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50vh;
+  padding: 0 32px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  transform: translateY(-105%);
+  visibility: hidden;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 650ms;
+}
+
+.nav-panel.is-open {
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Keep the existing header above the panel's link area */
+.nbar {
+  z-index: 1004;
+}
+
+.nav-panel-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  border-top: 1px solid #e5e5e5;
+}
+
+.nav-panel-links .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 16px;
+  color: #454545;
+  background: #fff;
+  font-family: inter, sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.nav-panel-links .btn + .btn {
+  border-left: 1px solid #e5e5e5;
+}
+
+.nav-panel-links .btn:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: -4px;
+}
+
+@media (hover: hover) {
+  .site-nav-link:hover,
+  .nav-panel-links .btn:hover {
+    color: #fff;
+    background: #000;
+  }
+}
+
+@media (hover: none) {
+  .nav-panel-links .btn:hover {
+    color: #454545;
+    background: #fff;
+  }
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .nbar {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    padding: 16px 32px;
+    gap: 12px;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ncontent {
+    min-width: 0;
+  }
+
+  .workcontainer {
+    gap: 8px;
+  }
+
+  .pages {
+    display: flex;
+    width: 44px;
+    justify-self: end;
+  }
+
+  .site-nav-link {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav-panel {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nbar {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+
+  .logo,
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .name {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .workcontainer {
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .work,
+  .work1 {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .work1 {
+    padding-right: 6px;
+  }
+
+  .pages,
+  .menu-toggle {
+    width: 36px;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+  }
+
+  .nav-panel {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-backdrop,
+  .nav-panel,
+  .nav-panel-links .btn,
+  .site-nav-link {
+    transition: none;
   }
 }

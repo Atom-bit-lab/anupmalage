@@ -209,8 +209,10 @@ body.page-transition {
 .case-main-content {
     background-color: #fff;
     padding: 40px 44px;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     align-items: center;
+    box-sizing: border-box;
 }
 
 
@@ -252,10 +254,12 @@ body.page-transition {
 ======================================== */
 
 .design {
-    width: 848px;
+    width: 100%;
+    max-width: 848px;
     display: flex;
     flex-direction: row;
     gap: 30px;
+    box-sizing: border-box;
 }
 
 
@@ -294,10 +298,12 @@ body.page-transition {
 .image-large {
     width: 100%;
     max-width: 848px;
-    height: 540px;
+    height: auto;
+    aspect-ratio: 848 / 540;
     display: block;
     overflow: hidden;
     margin-bottom: 32px;
+    box-sizing: border-box;
 }
 
 .image-large img {
@@ -337,7 +343,9 @@ body.page-transition {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    width: 848px;
+    width: 100%;
+    max-width: 848px;
+    box-sizing: border-box;
 }
 
 
@@ -346,8 +354,10 @@ body.page-transition {
 ======================================== */
 
 .mockup img {
-    height: 468px;
-    width: 408px;
+    width: 100%;
+    max-width: 408px;
+    height: auto;
+    aspect-ratio: 408 / 468;
     object-fit: cover;
     display: block;
 }
@@ -503,7 +513,9 @@ body.page-transition {
     display: flex;
     gap: 8px;
     flex-direction: column;
-    width: 848px;
+    width: 100%;
+    max-width: 848px;
+    box-sizing: border-box;
 }
 
 .section-label {
@@ -532,7 +544,9 @@ body.page-transition {
     gap: 16px;
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-width: 848px;
+    box-sizing: border-box;
 }
 
 .stage-title {
@@ -548,7 +562,9 @@ body.page-transition {
 .stages {
     margin-top: 44px;
     gap: 64px;
-    width: 848px;
+    width: 100%;
+    max-width: 848px;
+    box-sizing: border-box;
 }
 
 
@@ -560,6 +576,8 @@ body.page-transition {
     gap: 32px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-width: 0;
 }
 
 
@@ -570,9 +588,11 @@ body.page-transition {
 
 .Video_demo_loop {
     width: 100%;
+    max-width: 848px;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     margin-bottom: 32px;
+    box-sizing: border-box;
 }
 
 .Video_demo_loop video {
@@ -590,9 +610,11 @@ body.page-transition {
 .Video_demo_play {
     position: relative;
     width: 100%;
+    max-width: 848px;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     margin-bottom: 32px;
+    box-sizing: border-box;
 }
 
 .Video_demo_play video {
@@ -733,6 +755,13 @@ body.page-transition {
 
     .banner img {
         height: 480px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .case-main-content {
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 
