@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     backButton.onclick = function () {
 
-      navigateToPage("Home.html");
+      navigateToPage("index.html");
 
     };
 

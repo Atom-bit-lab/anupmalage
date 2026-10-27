@@ -115,15 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const images = [
     {
-      src: "../Assets/Table.png",
+      src: "Assets/Table.png",
       alt: "Farm360 typography design system"
     },
     {
-      src: "../Assets/Filter Section.png",
+      src: "Assets/Filter Section.png",
       alt: "Farm360 color design system"
     },
     {
-      src: "../Assets/Filter Section-1.png",
+      src: "Assets/Filter Section-1.png",
       alt: "Farm360 component library"
     }
   ];

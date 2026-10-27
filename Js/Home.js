@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "અ",
     "ଅ",
     "ਅ",
-    '<img src="../Assets/Mark.svg" alt="Kannada A">'
+    '<img src="Assets/Mark.svg" alt="Kannada A">'
   ];
 
   const scaleAnimationDuration = 800;
