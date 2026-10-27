@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anup Malage | Product Designer</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/Logo.svg">
+    <link rel="stylesheet" href="../css/Home.css">
+    <link rel="preload" href="../Assets/Mark.svg" as="image">
+    <script src="../js/Home.js"></script>
+</head>
+
+<body>
+    <div id="loader-overlay">
+
+        <div class="loader-text">
+            [<span id="letter">A</span>]
+        </div>
+
+    </div>
+
+    <div class="nbar">
+        <div class="logo"><img src="../Assets/Logo.svg" alt="Logo"></div>
+
+        <div class="ncontent">
+            <div class="name">Anup Malage</div>
+            <div class="workcontainer">
+                <div class="work1">Previously <a href="https://krishitantra.com/">@Krishitantra</a></div>
+                <div class="work">Open to Work</div>
+                <div class="pulse"></div>
+            </div>
+        </div>
+        <div class="pages">
+            <a class="site-nav-link" href="#about">About</a>
+            <a class="site-nav-link" href="#" data-resume-link target="_blank" rel="noopener noreferrer">Resume</a>
+            <button class="menu-toggle" id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="nav-panel">
+                <svg class="menu-icon menu-icon--menu" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M2.5 5H17.5V6.66667H2.5V5ZM2.5 9.16667H17.5V10.8333H2.5V9.16667ZM2.5 13.3333H17.5V15H2.5V13.3333Z"
+                        fill="black" />
+                </svg>
+                <svg class="menu-icon menu-icon--close" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M15.6221 3.24817C15.6225 3.2483 15.6229 3.24852 15.6237 3.24932L16.7505 4.37608C16.7513 4.37688 16.7515 4.37725 16.7516 4.37772C16.7518 4.37815 16.7518 4.37863 16.7516 4.37907C16.7515 4.37951 16.7513 4.37989 16.7505 4.38069L11.1313 9.99989L16.7505 15.6191C16.7513 15.6199 16.7515 15.6203 16.7516 15.6207C16.7517 15.6212 16.7517 15.6216 16.7516 15.6221C16.7515 15.6225 16.7513 15.6229 16.7505 15.6237L15.6237 16.7505C15.6229 16.7513 15.6225 16.7515 15.6221 16.7516C15.6216 16.7518 15.6211 16.7518 15.6207 16.7516C15.6203 16.7515 15.6199 16.7513 15.6191 16.7505L9.99989 11.1313L4.38069 16.7505C4.37991 16.7513 4.37951 16.7515 4.37907 16.7516C4.37862 16.7517 4.37814 16.7517 4.3777 16.7516C4.37727 16.7515 4.37688 16.7513 4.37608 16.7505L3.24932 15.6237C3.24852 15.6229 3.2483 15.6225 3.24817 15.6221C3.24801 15.6216 3.24801 15.6211 3.24817 15.6207C3.2483 15.6203 3.24852 15.6199 3.24932 15.6191L8.8685 9.99989L3.24932 4.38069C3.24852 4.37991 3.2483 4.37951 3.24817 4.37907C3.24803 4.37862 3.24803 4.37814 3.24817 4.3777C3.2483 4.37727 3.24852 4.37688 3.24932 4.37608L4.37608 3.24932C4.37688 3.24852 4.37725 3.2483 4.37772 3.24817C4.37815 3.24801 4.37863 3.24801 4.37907 3.24817C4.37951 3.2483 4.37989 3.24852 4.38069 3.24932L9.99989 8.8685L15.6191 3.24932C15.6199 3.24852 15.6203 3.2483 15.6207 3.24817C15.6212 3.24803 15.6216 3.24803 15.6221 3.24817H15.6221Z"
+                        fill="black" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+<nav class="nav-panel" id="nav-panel" aria-label="Main navigation" aria-hidden="true">
+    <div class="nav-panel-links">
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#" data-resume-link target="_blank" rel="noopener noreferrer">Resume</a>
+    </div>
+</nav>
+
+    <div class="Hero">
+        <section class="hero-section">
+            <canvas id="grid-canvas"></canvas>
+            <div class="hero-content">
+                <p class="hero-title">Designing with Intent,<br> Designing for Impact</p>
+                 <ul class="designition-tags">
+                    <li>Product Designer</li>
+                    <li>2 Years of Experience</li>
+                    <li>3+ Projects</li>
+            
+                </ul>
+        </section>
+
+    </div>
+
+    <div class="card-container">
+        <div class="card" onclick="navigateToPage('Farm360.html')">
+            <div class="Thumbnail">
+                <img src="../Assets/Farm360_Mockup.webp" alt="Thumbnail">
+            </div>
+            <div class="case-info">
+                <div>
+                    <span class="chip">Enterprise B2B</span>
+                    <span class="chip">1-N</span>
+                    <span class="chip">Web Application</span>
+                </div>
+                <div class="Title">
+                    <h1>Building Consistency at Scale</h1>
+                </div>
+
+            </div>
+
+            <div class="project-focus-container">
+                <span class="section-label">Project Focus</span>
+
+                <ul class="focus-tags">
+                    <li>UI Audit</li>
+                    <li>Accessibility</li>
+                    <li>Heuristic Analysis</li>
+                    <li>Information Architecture</li>
+                    <li>Design System</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card" onclick="navigateToPage('SMB.html')">
+            <div class="Thumbnail">
+                <img src="../Assets/SBM_Mockup.webp" alt="Thumbnail">
+            </div>
+            <div class="case-info">
+                <div>
+                    
+                    <span class="chip">Mobile Design</span>
+                    <span class="chip">B2C</span>
+                    <span class="chip">0-1</span>
+                </div>
+                <div class="Title">
+                    <h1>Designing a Digital Experience for Sheet Bharat Mission.</h1>
+                </div>
+
+            </div>
+
+            <div class="project-focus-container">
+                <span class="section-label">Project Focus</span>
+
+                <ul class="focus-tags">
+                    <li>UI Design</li>
+                    <li>Accessibility</li>
+                    <li>MVP Design</li>
+                    <li>Information Architecture</li>
+                    <li>Mobile Design System</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" >
+            <div class="Thumbnail">
+                <img src="../Assets/Myntra_Mockup.webp" alt="Thumbnail">
+            </div>
+            <div class="case-info">
+                <div>
+                    <span class="chip">Concept Project</span>
+                    <span class="chip">Mobile Design</span>
+                </div>
+                <div class="Title">
+                    <h1>How might we reduce decision friction to increase purchase commitment?</h1>
+                    
+                </div>
+
+            </div>
+
+            <div class="project-focus-container">
+                <span class="section-label">An independent concept project exploring contextual UX in fashion. Work in progress.</span>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="card-container site-footer" id="contact">
+
+        <div class="card site-footer-card">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <div class="footer-logo">
+                        <img src="../Assets/Logo.svg" alt="" class="footer-logo-image">
+                        <span class="footer-logo-name">ANUP<br>MALAGE</span>
+                    </div>
+
+                </div>
+
+                <div class="footer-content">
+
+                    <p class="footer-philosophy">
+                        I believe in simplicity, but not at the expense of what matters.
+                        In removing the unnecessary without overlooking the essential.
+                    </p>
+
+                    <div class="footer-contact">
+
+                        <p class="footer-contact-heading">
+                            Interested in working together?
+                            Let's connect.
+                        </p>
+
+                        <nav class="footer-links" aria-label="Contact links">
+
+                            <a class="footer-link"
+                               href="https://www.linkedin.com/in/anup-malage"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <span>Linkedin</span>
+                                <span class="footer-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                            <a class="footer-link" href="mailto:anupmalage.connect@gmail.com">
+                                <span>Gmail</span>
+                                <span class="footer-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                        </nav>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <div class="footer-copyright">
+                    <span class="copyright-symbol" aria-hidden="true">©</span>
+                    <span>2026 Anup Malage. All Rights Reserved</span>
+                </div>
+
+                <p class="footer-tagline">
+                    Designed with intent. Obviously.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
