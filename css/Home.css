@@ -2,9 +2,6 @@
   --content-width: 886px;
 }
 
-/* ========================================
-   GLOBAL
-======================================== */
 
 html,
 body {
@@ -27,13 +24,6 @@ body.page-transition {
   opacity: 0;
 }
 
-
-
-
-/* ========================================
-   1. PAGE LOADER
-   #loader-overlay appears before the homepage content.
-======================================== */
 
 #loader-overlay {
   position: fixed;
@@ -85,9 +75,7 @@ html.returning-home #loader-overlay {
   visibility: hidden !important;
 }
 
-/* ========================================
-   2. NAVIGATION BAR
-======================================== */
+
 
 .nbar {
   display: grid;
@@ -190,9 +178,6 @@ html.returning-home #loader-overlay {
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
-/* ========================================
-   3. HERO
-======================================== */
 
 .Hero {
   display: flex;
@@ -253,10 +238,7 @@ html.returning-home #loader-overlay {
   letter-spacing: 0.1rex;
 }
 
-/* ========================================
-   4. PROJECT CARDS
-   Each .card-container wraps one homepage project card.
-======================================== */
+
 
 .card-container {
   display: flex;
@@ -362,7 +344,8 @@ h1 {
   letter-spacing: 0;
 }
 
-.focus-tags {
+.focus-tags,
+.designition-tags {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -372,7 +355,8 @@ h1 {
   list-style: none;
 }
 
-.focus-tags li {
+.focus-tags li,
+.designition-tags li {
   display: flex;
   align-items: center;
   margin: 0;
@@ -384,7 +368,8 @@ h1 {
   letter-spacing: 0;
 }
 
-.focus-tags li:not(:last-child)::after {
+.focus-tags li:not(:last-child)::after,
+.designition-tags li:not(:last-child)::after {
   margin-left: 12px;
   color: #5a5a5a;
   font-size: 10px;
@@ -392,9 +377,7 @@ h1 {
   pointer-events: none;
 }
 
-/* ========================================
-   5. ANIMATIONS
-======================================== */
+
 
 @keyframes pulse {
   0% {
@@ -425,9 +408,7 @@ h1 {
   }
 }
 
-/* ========================================
-   6. RESPONSIVE OVERRIDES
-======================================== */
+
 
 @media (max-width: 743px) {
   .card {
@@ -462,38 +443,50 @@ h1 {
 }
 
 
-/* ========================================
-   7. FOOTER
-======================================== */
+
 
 .site-footer {
-    --footer-margin: 44px;
-
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     width: 100%;
-    min-height: 100vh;
     min-height: 80svh;
-    padding: 64px var(--footer-margin) 54px;
+    padding: 0;
     color: #484848;
     background: #fff;
-    border-top: 1px solid #e5e5e5;
+}
+
+.site-footer .site-footer-card {
+    align-items: stretch;
+    justify-content: flex-end;
+    width: 888px;
+    min-height: 80svh;
+    height: auto;
+    background: #fff;
+    gap: 64px;
+    margin: 0 44px;
+    padding: 16px;
+    cursor: default;
+    transition: none;
+}
+
+.site-footer .site-footer-card:hover {
+    color: inherit;
+    background-color: #fff;
 }
 
 .site-footer .footer-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 24px;
 }
 
-/* Brand */
-
 .site-footer .footer-brand {
-    max-width: 580px;
-    min-width: 0;
+    width: 100%;
+    padding-bottom: 8px;
 }
 
 .site-footer .footer-logo {
@@ -521,28 +514,50 @@ h1 {
 
 .site-footer .footer-philosophy {
     max-width: 580px;
-    margin: 20px 0 0;
+    margin: 0;
     font-family: inter, sans-serif;
     font-style: italic;
-    font-size: 24px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: 100;
     line-height: 1.4;
     letter-spacing: -0.65px;
 }
 
-/* Contact */
+.site-footer .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    align-items: start;
+    gap: 64px;
+}
 
 .site-footer .footer-contact {
     width: 100%;
     max-width: 480px;
     justify-self: end;
-    margin-top: 105px;
+    margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+    .site-footer .footer-content {
+        grid-template-columns: 1fr;
+        gap: 72px;
+    }
+
+    .site-footer .footer-contact {
+        max-width: 650px;
+        justify-self: start;
+    }
+
+    .site-footer .footer-links {
+        padding-left: 0;
+    }
 }
 
 .site-footer .footer-contact-heading {
     margin: 0;
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 100;
     line-height: 1.4;
     letter-spacing: -0.6px;
 }
@@ -551,11 +566,11 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 34px;
-    padding-left: 16px;
+    margin-top: 44px;
+    
 }
 
-/* Matches the existing .btn navigation style */
+
 
 .site-footer .footer-link {
     display: inline-flex;
@@ -567,18 +582,17 @@ h1 {
     font-weight: 500;
     line-height: normal;
     text-decoration: none;
-    background: #fff;
-    transition: background-color 0.4s ease-in-out,
-                color 0.4s ease-in-out;
+    background: transparent;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
 .site-footer .footer-link:hover {
     color: #fff;
-    background: #0e0e0e;
+    background-color: #000;
 }
 
 .site-footer .footer-arrow {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1;
 }
 
@@ -589,7 +603,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    margin-top: 100px;
+    width: 100%;
     font-size: 14px;
     font-weight: 200;
     line-height: 1.5;
@@ -614,25 +628,31 @@ h1 {
     text-align: right;
 }
 
-/* ========================================
-   TABLET
-======================================== */
+
 
 @media (min-width: 501px) and (max-width: 900px) {
+
+    .Hero {
+        height: 70vh;
+    }
+
+    .hero-section {
+        height: 100%;
+    }
 
     .hero-title {
         font-size: 44px;
     }
 
     .site-footer {
-        --footer-margin: 32px;
-        padding-top: 64px;
-        padding-bottom: 32px;
+        padding: 0;
     }
 
     .site-footer .footer-main {
-        display: flex;
-        flex-direction: column;
+        gap: 24px;
+    }
+
+    .site-footer .footer-content {
         gap: 72px;
     }
 
@@ -643,30 +663,48 @@ h1 {
 
     .site-footer .footer-links {
         gap: 16px;
-        margin-top: 36px;
+        margin-top: 24px;
     }
 }
 
-/* ========================================
-   MOBILE
-======================================== */
 
 @media (max-width: 500px) {
+
+    .Hero {
+        height: 50vh;
+    }
+
+    .hero-section {
+        height: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .designition-tags {
+        box-sizing: border-box;
+        width: 100%;
+        justify-content: center;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
 
     .hero-title {
         font-size: 30px;
     }
 
     .site-footer {
-        --footer-margin: 16px;
-        padding-top: 56px;
-        padding-bottom: 28px;
+        min-height: 80svh;
+        padding: 0;
+    }
+
+    .site-footer .site-footer-card {
+        padding: 16px;
     }
 
     .site-footer .footer-main {
-        display: flex;
-        flex-direction: column;
-        gap: 88px;
+        gap: 24px;
     }
 
     .site-footer .footer-logo {
@@ -679,7 +717,7 @@ h1 {
     }
 
     .site-footer .footer-philosophy {
-        margin-top: 32px;
+        margin-top: 0;
     }
 
     .site-footer .footer-contact {
@@ -687,21 +725,37 @@ h1 {
         margin-top: 0;
     }
 
+    .site-footer .footer-content {
+        gap: 40px;
+    }
+
     .site-footer .footer-links {
         gap: 8px;
-        margin-top: 30px;
-        padding-left: 0;
+        margin-top: 20px;
     }
 
     .site-footer .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
-        gap: 40px;
-        margin-top: 100px;
+        gap: 8px;
     }
 
     .site-footer .footer-tagline {
         text-align: left;
+    }
+}
+
+@media (max-width: 743px) {
+    .site-footer .site-footer-card {
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+}
+
+@media (min-width: 744px) and (max-width: 1199px) {
+    .site-footer .site-footer-card {
+        margin-right: 32px;
+        margin-left: 32px;
     }
 }
 
@@ -714,11 +768,6 @@ h1 {
 }
 
 
-/* ========================================
-   8. RESPONSIVE NAVIGATION OVERLAY
-======================================== */
-
-/* Show inline links on desktop and use the menu control on smaller screens. */
 .pages {
   display: flex;
   justify-content: flex-end;
@@ -773,7 +822,7 @@ h1 {
   display: block;
 }
 
-/* Dark, blurred page behind the menu */
+
 .nav-backdrop {
   position: fixed;
   inset: 0;
@@ -792,7 +841,6 @@ h1 {
   transition-delay: 0s;
 }
 
-/* Panel slides down from the top, beneath the header */
 .nav-panel {
   position: fixed;
   top: var(--nav-bar-height, 0px);
@@ -815,7 +863,7 @@ h1 {
   transition-delay: 0s;
 }
 
-/* Keep the existing header above the panel's link area */
+
 .nbar {
   z-index: 1004;
 }
