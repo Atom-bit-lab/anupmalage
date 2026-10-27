@@ -161,43 +161,32 @@ sessionStorage.setItem("hasVisitedHome", "true");
 
   let loaderDuration = 0;
 
-  if (letterElement && loaderOverlay && shouldPlayLoader) {
+if (letterElement && loaderOverlay && shouldPlayLoader) {
+  loaderOverlay.style.display = "flex";
 
-    loaderDuration =
-      scaleAnimationDuration +
-      initialDelay +
-      (animationSequence.length * swapSpeed) +
-      600;
+  let index = 0;
 
-    setTimeout(() => {
+  const showNextCharacter = () => {
+    if (index >= animationSequence.length) {
+      loaderOverlay.classList.add("fade-out");
 
-      let index = 0;
+      setTimeout(() => {
+        loaderOverlay.style.display = "none";
+      }, 1000);
 
-      const cycleInterval = setInterval(() => {
+      return;
+    }
 
-        letterElement.innerHTML = animationSequence[index];
-        index++;
+    letterElement.innerHTML = animationSequence[index];
+    index++;
 
-        if (index >= animationSequence.length) {
+    setTimeout(showNextCharacter, swapSpeed);
+  };
 
-          clearInterval(cycleInterval);
-
-          setTimeout(() => {
-            loaderOverlay.classList.add("fade-out");
-          }, 600);
-
-        }
-
-      }, swapSpeed);
-
-    }, scaleAnimationDuration + initialDelay);
-
-  } else if (loaderOverlay) {
-
-    // Skip loader when returning from another page.
-    loaderOverlay.style.display = "none";
-
-  }
+  setTimeout(showNextCharacter, scaleAnimationDuration + initialDelay);
+} else if (loaderOverlay) {
+  loaderOverlay.style.display = "none";
+}
 
 
   /* ========================================
