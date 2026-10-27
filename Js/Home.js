@@ -90,6 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.remove("page-transition");
   document.body.classList.add("page-ready");
 
+
+window.addEventListener("pageshow", () => {
+  document.body.classList.remove("page-transition");
+  document.body.classList.add("page-ready");
+});
+
+
   window.navigateToPage = (href) => {
     const loaderOverlay = document.getElementById("loader-overlay");
 
