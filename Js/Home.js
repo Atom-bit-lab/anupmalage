@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navBackdrop = document.getElementById("nav-backdrop");
   const navClose = document.getElementById("nav-close");
   const navBar = document.querySelector(".nbar");
-  const resumeUrl = "https://drive.google.com/file/d/19Ro3HEk_fK-tTziPBwZeQaUzM6JyjR14/view?usp=sharing";
+  const resumeUrl = "https://drive.google.com/file/d/16RPt7UEd0Zw22z8ShvDHxofnEEzUoj1v/view?usp=sharing";
 
   function positionNavPanel() {
     if (!navPanel || !navBar) return;
