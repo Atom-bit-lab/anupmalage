@@ -115,16 +115,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const images = [
     {
+      src: "Assets/Dashboard.png",
+      alt: "Farm360 Dashboard"
+    },
+    {
       src: "Assets/Table.png",
-      alt: "Farm360 typography design system"
+      alt: "Farm360 Table"
+    },
+    {
+      src: "Assets/Forms.png",
+      alt: "Farm360 Forms"
     },
     {
       src: "Assets/Filter Section.png",
-      alt: "Farm360 color design system"
+      alt: "Farm360 Filter Section"
     },
     {
       src: "Assets/Filter Section-1.png",
-      alt: "Farm360 component library"
+      alt: "Farm360 Forms"
     }
   ];
 

@@ -1,0 +1,249 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    transition: opacity 350ms ease;
+}
+
+body.page-transition {
+    opacity: 0;
+}
+
+.nbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px 8px 12px;
+    border: 0;
+    background-color: transparent;
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.back-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: fit-content;
+    margin: 0;
+    overflow: visible;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.about-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    box-sizing: border-box;
+    width: min(888px, calc(100vw - 32px));
+    height: 90vh;
+    padding: 16px;
+}
+
+.about-intro-copy {
+    flex: 1;
+    min-width: 0;
+    height: fit-content;
+    color: #232323;
+    font-family: Inter, sans-serif;
+}
+
+.about-intro-greeting {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.about-intro h1 {
+    margin: 0;
+    color: #232323;
+    font-family: Inter, sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.about-intro-quote {
+    margin: 20px 0 0;
+    color: #757575;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.about-intro-image {
+    display: block;
+    flex: 0 0 300px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.about-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: min(888px, calc(100vw - 32px));
+    height: 70%;
+    padding: 16px;
+    overflow: visible;
+    color: inherit;
+    
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    cursor: default;
+    transition: background-color 400ms ease, color 400ms ease;
+}
+
+.about-content .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 112px;
+    scroll-margin-top: 90px;
+}
+
+.about-content .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 848px;
+}
+
+.about-content .section-label {
+    color: #757575;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.about-content .section-title {
+    margin: 0;
+    padding: 0;
+    color: #111;
+    font-family: Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.about-content .info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 848px;
+}
+
+.about-content .body-text {
+    margin: 0;
+    color: #4d4d4d;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.book-collection {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.book-img {
+    display: block;
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 720px) {
+    .about-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        justify-content: center;
+    }
+
+    .about-intro-copy {
+        flex: 0 0 auto;
+        width: 100%;
+        height: fit-content;
+        text-align: left;
+    }
+
+    .about-intro h1 {
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    .about-intro-quote {
+        margin-top: 16px;
+        font-size: 18px;
+    }
+
+    .about-intro-image {
+        align-self: center;
+    }
+
+    .book-collection {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 744px) {
+    .nbar {
+        padding: 16px 32px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nbar {
+        padding: 16px 44px;
+    }
+}
